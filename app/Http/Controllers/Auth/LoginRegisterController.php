@@ -79,10 +79,18 @@ class LoginRegisterController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+        $credentials = $request->only('email', 'password');
+
+        // Misal verifikasi manual:
+        $user = User::where('email', $credentials['email'])->first();
 
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
+            session()->put('user_id', $user->id);
+            session()->put('fullname', $user->full_name);
+            session()->put('username', $user->username);
+            session()->put('email', $user->email);
             return redirect()->route('dashboard')
                 ->withSuccess('You have successfully logged in!');
         }

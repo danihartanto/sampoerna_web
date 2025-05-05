@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BarangModel;
+use App\Models\WarehouseModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -10,7 +11,9 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $posts = BarangModel::latest()->paginate(5);
+        $posts = BarangModel::with('warehouse')->get();
+        // dd($barangs);
+        // $posts = BarangModel::latest()->paginate(5);
 
         //render view with posts
         return view('barang.index', compact('posts'));
@@ -19,7 +22,9 @@ class BarangController extends Controller
 
     public function add()
     {
-        return view('barang.add');
+        $warehouses = WarehouseModel::all(); 
+        return view('barang.add', compact('warehouses'));
+        // return view('barang.add');
     }
     public function add_proses(Request $request)
     {
@@ -36,11 +41,11 @@ class BarangController extends Controller
         // dd($request);
         BarangModel::create([
             'nama_barang'     => $request->nama_barang,
-            'kode'     => $request->kode,
+            'kode_barang'     => $request->kode_barang,
             'jenis'   => $request->jenis,
-            'jumlah'   => $request->jumlah,
+            'stok'   => $request->stok,
             'satuan'   => $request->satuan,
-            'pic'   => $request->pic
+            'warehouse_id'   => $request->warehouse_id
         ]);
 
         // return view('barang.index');
@@ -92,9 +97,10 @@ class BarangController extends Controller
     {
         //get post by ID
         $post = BarangModel::findOrFail($id);
+        $warehouses = WarehouseModel::all(); 
 
         //render view with post
-        return view('barang.edit', compact('post'));
+        return view('barang.edit', compact('post','warehouses'));
     }
 
     public function update(Request $request, $id)
@@ -115,10 +121,10 @@ class BarangController extends Controller
         BarangModel::where('id', $id)->update([
             'nama_barang'     => $request->nama_barang,
             // 'kode'     => $request->kode,
-            'jenis'   => $request->jenis,
-            'jumlah'   => $request->jumlah,
+            // 'jenis'   => $request->jenis,
+            'stok'   => $request->stok,
             'satuan'   => $request->satuan,
-            'pic'   => $request->pic
+            'warehouse_id'   => $request->warehouse_id
         ]);
 
         // return view('barang.index');

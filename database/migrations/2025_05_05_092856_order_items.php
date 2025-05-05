@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->string('po_number', 50)->unique();
-            $table->string('supplier', 100);
-            $table->date('tanggal_po');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+            $table->foreignId('order_id')->constrained('order')->onDelete('cascade');
+            $table->foreignId('barang_id')->constrained('barang')->onDelete('restrict');
+            $table->integer('qty');
+            $table->decimal('harga_satuan', 12, 2);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order');
+        Schema::dropIfExists('order_items');
     }
 };

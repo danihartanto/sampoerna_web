@@ -7,5 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class SalesModel extends Model
 {
-    use HasFactory;
+    
+    protected $table = 'sales';
+
+    protected $fillable = [
+        'sales_number',
+        'customer',
+        'tanggal_jual',
+        'created_by',
+        // 'warehouse_id',
+    ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function salesitems()
+    {
+        return $this->hasMany(SalesItemsModel::class);
+    }
 }

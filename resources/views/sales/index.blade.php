@@ -8,7 +8,7 @@
     <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-        <h1>Warehouse</h1>
+        <h1>Sales</h1>
         </div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -27,45 +27,44 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Bordered Table</h3>
+                  <h3 class="card-title">Data penjualan</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <a href="/warehouse/add" class="btn btn-md btn-success mb-2">Tambah Data</a>
+                    <a href="/barang/add" class="btn btn-md btn-success mb-2">Tambah Data</a>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
                             <th>No.</th>
-                            {{-- <th></th> --}}
-                            <th>Nama Gudang</th>
-                            <th>Kode</th>
-                            <th>Lokasi</th>
-                            {{-- <th>Telepon</th> --}}
-                            <th style="width: 40px">Kapasitas</th>
-                            <th>Telepon</th>
+                            <th>Nomer penjualan</th>
+                            <th>Customer</th>
+                            <th>Tgl Jual</th>
+							<th>Created BY</th>
+                            <th>Created At</th>
                             <th>Options</th>
                         </tr>
                         </thead>
                         <tbody>
                             <?php $id=1; ?> 
                             @forelse ($posts as $post)
-                              <tr>
-                                    <td>{{ $id++ }}</td>
-                                    <td>{{ $post->nama }}</td>
-                                    <td>{{ $post->kode }}</td>
-                                    <td>{{ $post->lokasi }}</td>
-                                    <td>{{ $post->kapasitas }}</td>
-                                    <td>{{ $post->telepon }}</td>
-                                    <td class="text-center">
-                                      <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('destroy', $post->id) }}" method="POST">
-                                          {{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
-                                          <a href="{{ route('warehouse_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                          @csrf
-                                          @method('DELETE')
-                                          <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                      </form>
-                                  </td>
-                              </tr>
+								<tr>
+										<td>{{ $id++}}</td>
+										<td>{{ $post->sales_number}}</td>
+										<td>{{ $post->customer}}</td>
+										<td>{{ $post->tanggal_jual}}</td>
+										{{-- <td>{{ $post->stok }} - {{ $post->satuan }}</td> --}}
+										<td>{{ $post->users->full_name}}</td>
+										<td>{{ $post->created_at}}</td>
+										<td class="text-center">
+										<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('destroy', $post->id) }}" method="POST">
+											{{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
+											<a href="{{ route('barang_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+											@csrf
+											@method('DELETE')
+											<button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+										</form>
+									</td>
+								</tr>
                             @empty
                                 <div class="alert alert-danger">
                                     Data Post belum Tersedia.

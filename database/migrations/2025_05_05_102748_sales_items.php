@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('barang_id')->constrained('barang')->onDelete('restrict');
             $table->integer('qty');
             $table->decimal('harga_satuan', 12, 2);
+            $table->date('tanggal_jual');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\MasterdataController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,23 @@ Route::controller(SalesController::class)->group(function() {
     Route::delete('/sales/destroy/{id}', 'destroy')->name('destroy');
     Route::get('/sales/edit/{id}', 'edit')->name('sales_edit');
     Route::put('/sales/update/{id}', 'update')->name('sales_update_proses');
+});
+Route::controller(SalesController::class)->group(function() {
+    Route::get('/customer', 'index')->name('index');
+    Route::get('/customer/add', 'add')->name('add');
+    Route::post('/customer/add_proses', 'add_proses')->name('customer_add_proses');
+    Route::delete('/customer/destroy/{id}', 'destroy')->name('destroy');
+    Route::get('/customer/edit/{id}', 'edit')->name('customer_edit');
+    Route::put('/customer/update/{id}', 'update')->name('customer_update_proses');
+});
+
+Route::controller(MasterdataController::class)->group(function() {
+    Route::get('/master/jenis', 'jenis_index')->name('jenis_index');
+    Route::get('/master/jenis/add', 'jenis_add')->name('jenis_add');
+    Route::post('/master/jenis/add_proses', 'jenis_add_proses')->name('jenis_add_proses');
+    Route::delete('/master/jenis/destroy/{id}', 'jenis_destroy')->name('jenis_destroy');
+    Route::get('/master/jenis/edit/{id}', 'jenis_edit')->name('jenis_edit');
+    Route::put('/master/jenis/update/{id}', 'jenis_update')->name('jenis_update_proses');
 });
 
 // $routes->group('decoration', function ($routes) {

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('sales_number');
             $table->string('customer', 100);
-            $table->date('tanggal_jual');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

@@ -13,7 +13,6 @@ class SalesModel extends Model
     protected $fillable = [
         'sales_number',
         'customer',
-        'tanggal_jual',
         'created_by',
         // 'warehouse_id',
     ];
@@ -25,5 +24,14 @@ class SalesModel extends Model
     public function salesitems()
     {
         return $this->hasMany(SalesItemsModel::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+    public function barangs()
+    {
+        return $this->belongsTo(BarangModel::class,'barang_id');
     }
 }

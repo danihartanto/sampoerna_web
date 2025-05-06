@@ -19,6 +19,7 @@ class SalesItemsSeeder extends Seeder
                 'barang_id' => 3, // pastikan barang ID 1 ada
                 'qty' => 2,
                 'harga_satuan' => 250000,
+                'tanggal_jual' => now(),
                 'created_by' => 1
             ],
             [
@@ -26,6 +27,7 @@ class SalesItemsSeeder extends Seeder
                 'barang_id' => 4,
                 'qty' => 1,
                 'harga_satuan' => 1000000,
+                'tanggal_jual' => now(),
                 'created_by' => 2
             ],
         ]);

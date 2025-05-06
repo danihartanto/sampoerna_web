@@ -15,6 +15,7 @@ class SalesItemsModel extends Model
         'barang_id',
         'qty',
         'harga_satuan',
+        'tanggal_jual',
         'created_by',
         // 'warehouse_id',
     ];
@@ -29,6 +30,7 @@ class SalesItemsModel extends Model
     }
     public function barangs()
     {
-        return $this->belongsTo(BarangModel::class);
+        return $this->belongsTo(BarangModel::class,'barang_id');
     }
+    
 }

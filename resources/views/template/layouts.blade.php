@@ -151,11 +151,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/dokumentasi" class="nav-link">
+                        <a href="/report" class="nav-link">
                             <i class="nav-icon bi bi-table"></i>
                             
                             <p>
-                                Dokumentsai Data
+                                Reporting
                                 <i class="bi bi-caret-right-fill right"></i>
                             </p>
                         </a>
@@ -172,7 +172,17 @@
                     </li>
                     <li class="nav-header">Master Data</li>
                     <li class="nav-item">
-                        <a href="/user" class="nav-link">
+                        <a href="/customer" class="nav-link">
+                            <i class="nav-icon bi bi-bag-plus-fill"></i>
+                            
+                            <p>
+                                Customer
+                                <i class="bi bi-caret-right-fill right"></i>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/master/jenis" class="nav-link">
                             <i class="nav-icon bi bi-bag-plus-fill"></i>
                             
                             <p>
@@ -182,7 +192,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/user" class="nav-link">
+                        <a href="/master/satuan" class="nav-link">
                             <i class="nav-icon bi bi-bag-plus-fill"></i>
                             
                             <p>

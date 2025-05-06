@@ -25,7 +25,7 @@ class BarangModel extends Model
     }
     public function salesitems()
     {
-        return $this->hasMany(SalesItemsModel::class);
+        return $this->hasMany(SalesItemsModel::class, 'barang_id');
     }
     // protected $table = 'barang';
     // protected $primaryKey = 'id';

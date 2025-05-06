@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 </head>
+
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
 <div class="wrapper">
@@ -53,7 +54,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="bi bi-journal-text"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="/home" class="nav-link">Home</a>
+                <a href="/dashboard" class="nav-link">Home</a>
             </li>
             
         </ul>
@@ -100,7 +101,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-secondary elevation-0">
     <!-- Brand Logo -->
-    <a href="/home" class="brand-link">
+    <a href="/dashboard" class="brand-link">
         <img src="{{ asset('/') }}image/logos.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">sampoerna</span>
     </a>
@@ -113,7 +114,7 @@
                     with font-awesome or any other icon font library -->
                     <li class="nav-header">Database</li>
                     <li class="nav-item">
-                        <a href="/home" class="nav-link">
+                        <a href="/dashboard" class="nav-link">
                             <i class="nav-icon bi bi-table"></i>
                             <p>
                                 Dashboard
@@ -231,7 +232,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
                             <li class="breadcrumb-item active">Admin Page</li>
                         </ol>
                     </div>

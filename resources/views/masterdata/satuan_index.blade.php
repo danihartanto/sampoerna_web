@@ -8,12 +8,12 @@
     <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-        <h1>Inventory</h1>
+        <h1>Master Data Satuan</h1>
         </div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Masterdata</li>
         </ol>
         </div>
     </div>
@@ -27,23 +27,18 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Bordered Table</h3>
+                  <h3 class="card-title">Master Data Satuan</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <a href="/barang/add" class="btn btn-md btn-success mb-2">Tambah Data</a>
+                    <a href="/master/satuan/add" class="btn btn-md btn-success mb-2">Tambah Data</a>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                          {{-- <th></th> --}}
                             <th>No.</th>
-                            <th>Nama Barang</th>
-                            <th>Kode</th>
-                            {{-- <th>Jenis</th> --}}
-                            {{-- <th>Telepon</th> --}}
-                            <th>Jumlah</th>
-							<th>Gudang</th>
-                            <th>Lokasi Gudang</th>
+                            <th>Nama</th>
+                            <th>Short Name</th>
+                            <th>Created at</th>
                             <th>Options</th>
                         </tr>
                         </thead>
@@ -52,16 +47,13 @@
                             @forelse ($posts as $post)
 								<tr>
 										<td>{{ $id++}}</td>
-										<td>{{ $post->nama_barang}}</td>
-										<td>{{ $post->kode_barang}}</td>
-										{{-- <td>{{ $post->jenis}}</td> --}}
-										<td>{{ $post->stok }} - {{ $post->satuan }}</td>
-										<td>{{ $post->warehouse->nama}}</td>
-										<td>{{ $post->warehouse->lokasi}}</td>
+										<td>{{ $post->nama_satuan}}</td>
+										<td>{{ $post->kode_satuan}}</td>
+										<td>{{ $post->created_at}}</td>
 										<td class="text-center">
-										<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('barang_destroy', $post->id) }}" method="POST">
+										<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('satuan_destroy', $post->id) }}" method="POST">
 											{{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
-											<a href="{{ route('barang_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+											<a href="{{ route('satuan_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
 											@csrf
 											@method('DELETE')
 											<button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -70,7 +62,7 @@
 								</tr>
                             @empty
                                 <div class="alert alert-danger">
-                                    Data Post belum Tersedia.
+                                    Data Belum Tersedia.
                                 </div>
                             @endforelse
                           </tbody>

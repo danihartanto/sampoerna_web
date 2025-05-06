@@ -64,10 +64,23 @@
                                         <input type="number" class="form-control" id="stok" name="stok">
                                     </div>
                                 </div>
-                                <div class="mb-3 row">
+                                {{-- <div class="mb-3 row">
                                     <label for="satuan" class="col-md-4 col-form-label text-md-end text-start">satuan</label>
                                     <div class="col-md-6">
                                     <input type="text" class="form-control" id="satuan" name="satuan">
+                                    </div>
+                                </div> --}}
+                                <div class="mb-3 row">
+                                    <label for="warehouse" class="col-md-4 col-form-label text-md-end text-start">Satuan</label>
+                                    <div class="col-md-6">
+                                        <select name="satuan" class="form-control"  required>
+                                            <option value="">-- Pilih Satuan --</option>
+                                            @foreach ($satuans as $satuan)
+                                                <option value="{{ $satuan->kode_satuan }}">
+                                                    {{ $satuan->nama_satuan }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">

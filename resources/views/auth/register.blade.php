@@ -1,7 +1,16 @@
 @extends('auth.layouts')
 
 @section('content')
-
+<style>
+    .btn-red{
+        background-color: #ff7979;
+        color: aliceblue;
+        
+    }
+    .btn::after{
+        color: aliceblue;
+    }
+</style>
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
 
@@ -44,7 +53,7 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Register">
+                        <input type="submit" class="col-md-3 offset-md-5 btn btn-red text-white" value="Register">
                     </div>
                     
                 </form>

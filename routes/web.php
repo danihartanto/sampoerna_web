@@ -43,7 +43,7 @@ Route::controller(BarangController::class)->group(function() {
     Route::get('/barang', 'index')->name('index');
     Route::get('/barang/add', 'add')->name('add');
     Route::post('/barang/add_proses', 'add_proses')->name('barang_add_proses');
-    Route::delete('/barang/destroy/{id}', 'destroy')->name('destroy');
+    Route::delete('/barang/destroy/{id}', 'destroy')->name('barang_destroy');
     Route::get('/barang/edit/{id}', 'edit')->name('barang_edit');
     Route::put('/barang/update/{id}', 'update')->name('barang_update_proses');
 });
@@ -72,6 +72,13 @@ Route::controller(MasterdataController::class)->group(function() {
     Route::delete('/master/jenis/destroy/{id}', 'jenis_destroy')->name('jenis_destroy');
     Route::get('/master/jenis/edit/{id}', 'jenis_edit')->name('jenis_edit');
     Route::put('/master/jenis/update/{id}', 'jenis_update')->name('jenis_update_proses');
+
+    Route::get('/master/satuan', 'satuan_index')->name('satuan_index');
+    Route::get('/master/satuan/add', 'satuan_add')->name('satuan_add');
+    Route::post('/master/satuan/add_proses', 'satuan_add_proses')->name('satuan_add_proses');
+    Route::delete('/master/satuan/destroy/{id}', 'satuan_destroy')->name('satuan_destroy');
+    Route::get('/master/satuan/edit/{id}', 'satuan_edit')->name('satuan_edit');
+    Route::put('/master/satuan/update/{id}', 'satuan_update')->name('satuan_update_proses');
 });
 
 // $routes->group('decoration', function ($routes) {

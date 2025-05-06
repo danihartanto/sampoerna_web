@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BarangModel;
+use App\Models\SatuanModel;
 use App\Models\WarehouseModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -23,7 +24,8 @@ class BarangController extends Controller
     public function add()
     {
         $warehouses = WarehouseModel::all(); 
-        return view('barang.add', compact('warehouses'));
+        $satuans = SatuanModel::all();
+        return view('barang.add', compact('warehouses','satuans'));
         // return view('barang.add');
     }
     public function add_proses(Request $request)
@@ -97,10 +99,11 @@ class BarangController extends Controller
     {
         //get post by ID
         $post = BarangModel::findOrFail($id);
+        $satuans = SatuanModel::all();
         $warehouses = WarehouseModel::all(); 
 
         //render view with post
-        return view('barang.edit', compact('post','warehouses'));
+        return view('barang.edit', compact('post','warehouses','satuans'));
     }
 
     public function update(Request $request, $id)
@@ -136,10 +139,6 @@ class BarangController extends Controller
     {
         //get post by ID
         $post = BarangModel::find($id);
-
-        //delete image
-        // Storage::delete('public/posts/'. $post->image);
-
         //delete post
         $post->delete();
 

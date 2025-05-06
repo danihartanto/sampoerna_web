@@ -40,18 +40,25 @@
                                     <input type="number" class="form-control" id="stok" name="stok" value="{{ old('stok', $post->stok) }}">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            {{-- <div class="mb-3 row">
                                 <label for="satuan" class="col-md-4 col-form-label text-md-end text-start">satuan</label>
                                 <div class="col-md-6">
                                 <input type="text" class="form-control" id="satuan" name="satuan" value="{{ old('satuan', $post->satuan) }}">
                                 </div>
-                            </div>
-                            {{-- <div class="mb-3 row">
-                                <label for="warehouse" class="col-md-4 col-form-label text-md-end text-start">Lokasi barang</label>
-                                <div class="col-md-6">
-                                <input type="text" class="form-control" id="warehouse_id" name="warehouse_id" value="{{ old('warehouse_id', $post->warehouse_id) }}">
-                                </div>
                             </div> --}}
+                            <div class="mb-3 row">
+                                <label for="warehouse" class="col-md-4 col-form-label text-md-end text-start">Satuan</label>
+                                <div class="col-md-6">
+                                    <select name="satuan" class="form-control"  required>
+                                        {{-- <option value="">-- Pilih Satuan --</option> --}}
+                                        @foreach ($satuans as $satuan)
+                                            <option value="{{ $satuan->kode_satuan }}" {{ $post->satuan == $satuan->kode_satuan ? 'selected' : '' }}>
+                                                {{ $satuan->nama_satuan }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="mb-3 row">
                                 <label for="warehouse" class="col-md-4 col-form-label text-md-end text-start">Lokasi Warehouse</label>
                                 <div class="col-md-6">

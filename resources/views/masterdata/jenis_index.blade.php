@@ -8,12 +8,12 @@
     <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-        <h1>Warehouse</h1>
+        <h1>Master Data Jenis</h1>
         </div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Masterdata</li>
         </ol>
         </div>
     </div>
@@ -27,48 +27,42 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Bordered Table</h3>
+                  <h3 class="card-title">Master Data Jenis</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <a href="/warehouse/add" class="btn btn-md btn-success mb-2">Tambah Data</a>
+                    <a href="/master/jenis/add" class="btn btn-md btn-success mb-2">Tambah Data</a>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
                             <th>No.</th>
-                            {{-- <th></th> --}}
-                            <th>Nama Gudang</th>
-                            <th>Kode</th>
-                            <th>Lokasi</th>
-                            {{-- <th>Telepon</th> --}}
-                            <th style="width: 40px">Kapasitas</th>
-                            <th>Telepon</th>
+                            <th>Nama</th>
+                            <th>Short Name</th>
+                            <th>Created at</th>
                             <th>Options</th>
                         </tr>
                         </thead>
                         <tbody>
                             <?php $id=1; ?> 
                             @forelse ($posts as $post)
-                              <tr>
-                                    <td>{{ $id++ }}</td>
-                                    <td>{{ $post->nama }}</td>
-                                    <td>{{ $post->kode }}</td>
-                                    <td>{{ $post->lokasi }}</td>
-                                    <td>{{ $post->kapasitas }}</td>
-                                    <td>{{ $post->telepon }}</td>
-                                    <td class="text-center">
-                                      <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('destroy', $post->id) }}" method="POST">
-                                          {{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
-                                          <a href="{{ route('warehouse_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                          @csrf
-                                          @method('DELETE')
-                                          <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                      </form>
-                                  </td>
-                              </tr>
+								<tr>
+										<td>{{ $id++}}</td>
+										<td>{{ $post->nama_jenis}}</td>
+										<td>{{ $post->kode_jenis}}</td>
+										<td>{{ $post->created_at}}</td>
+										<td class="text-center">
+										<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('jenis_destroy', $post->id) }}" method="POST">
+											{{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
+											<a href="{{ route('jenis_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+											@csrf
+											@method('DELETE')
+											<button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+										</form>
+									</td>
+								</tr>
                             @empty
                                 <div class="alert alert-danger">
-                                    Data Post belum Tersedia.
+                                    Data Belum Tersedia.
                                 </div>
                             @endforelse
                           </tbody>

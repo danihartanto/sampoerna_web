@@ -11,9 +11,9 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>150</h3>
+              <h3>50</h3>
 
-              <p>New Orders</p>
+              <p>Warehouse</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -56,9 +56,9 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
+              <h3>6500</h3>
 
-              <p>Unique Visitors</p>
+              <p>Transactions</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

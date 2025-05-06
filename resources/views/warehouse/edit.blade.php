@@ -69,7 +69,7 @@
                               <div class="mb-3 row">
                                 <label for="telepon" class="col-md-4 col-form-label text-md-end text-start">Telepon</label>
                                 <div class="col-md-6">
-                                  <input type="number" class="form-control" id="telepon" name="telepon" value="{{ old('kapasitas', $post->kapasitas) }}">
+                                  <input type="text" class="form-control" id="telepon" name="telepon" value="{{ old('telepon', $post->telepon) }}">
                                 </div>
                             </div>
                               <div class="mb-3 row">

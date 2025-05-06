@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('report', function (Blueprint $table) {
+        Schema::create('jenis', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal')->unique();
-            $table->integer('total_transaksi')->default(0);
-            $table->integer('total_item')->default(0);
-            $table->decimal('total_penjualan', 15, 2)->default(0);
+            $table->string('nama_jenis');
+            $table->string('kode_jenis')->unique();
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('report');
+        Schema::dropIfExists('jenis');
     }
 };

@@ -55,6 +55,7 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="/home" class="nav-link">Home</a>
             </li>
+            
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -73,9 +74,13 @@
         @else
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-toggle="dropdown" aria-expanded="true">
-                {{ Auth::user()->name }}
+                {{ session()->get('fullname') }}
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                
+                <a class="dropdown-item" href="#" >
+                    Profilku
+                </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -93,7 +98,7 @@
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-light-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-secondary elevation-0">
     <!-- Brand Logo -->
     <a href="/home" class="brand-link">
         <img src="{{ asset('/') }}image/logos.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
@@ -146,11 +151,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/dokumentasi" class="nav-link">
+                        <a href="/report" class="nav-link">
                             <i class="nav-icon bi bi-table"></i>
                             
                             <p>
-                                Dokumentsai Data
+                                Reporting
                                 <i class="bi bi-caret-right-fill right"></i>
                             </p>
                         </a>
@@ -161,6 +166,37 @@
 
                             <p>
                                 Order
+                                <i class="bi bi-caret-right-fill right"></i>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-header">Master Data</li>
+                    <li class="nav-item">
+                        <a href="/customer" class="nav-link">
+                            <i class="nav-icon bi bi-bag-plus-fill"></i>
+                            
+                            <p>
+                                Customer
+                                <i class="bi bi-caret-right-fill right"></i>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/master/jenis" class="nav-link">
+                            <i class="nav-icon bi bi-bag-plus-fill"></i>
+                            
+                            <p>
+                                Jenis Items
+                                <i class="bi bi-caret-right-fill right"></i>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/master/satuan" class="nav-link">
+                            <i class="nav-icon bi bi-bag-plus-fill"></i>
+                            
+                            <p>
+                                Satuan Items
                                 <i class="bi bi-caret-right-fill right"></i>
                             </p>
                         </a>

@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SalesModel extends Model
+class SalesItemsModel extends Model
 {
-    
-    protected $table = 'sales';
+    use HasFactory;
+    protected $table = 'sales_items';
 
     protected $fillable = [
-        'sales_number',
-        'customer',
+        'sales_id',
+        'barang_id',
+        'qty',
+        'harga_satuan',
+        'tanggal_jual',
         'created_by',
         // 'warehouse_id',
     ];
@@ -21,17 +24,13 @@ class SalesModel extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function salesitems()
+    public function sales()
     {
-        return $this->hasMany(SalesItemsModel::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(SalesModel::class);
     }
     public function barangs()
     {
         return $this->belongsTo(BarangModel::class,'barang_id');
     }
+    
 }

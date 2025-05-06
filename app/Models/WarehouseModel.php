@@ -19,4 +19,8 @@ class WarehouseModel extends Model
         'created_at',
         'updated_at'
     ];
+    public function barangs()
+    {
+        return $this->hasMany(BarangModel::class);
+    }
 }

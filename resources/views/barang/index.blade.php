@@ -31,7 +31,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <a href="/barang/add">Tambah Data</a>
+                    <a href="/barang/add" class="btn btn-md btn-success mb-2">Tambah Data</a>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -39,35 +39,35 @@
                             <th>No.</th>
                             <th>Nama Barang</th>
                             <th>Kode</th>
-                            <th>Jenis</th>
+                            {{-- <th>Jenis</th> --}}
                             {{-- <th>Telepon</th> --}}
                             <th>Jumlah</th>
-                            <th>Penangguung Jawab</th>
+							<th>Gudang</th>
+                            <th>Lokasi Gudang</th>
                             <th>Options</th>
                         </tr>
                         </thead>
                         <tbody>
                             <?php $id=1; ?> 
                             @forelse ($posts as $post)
-                              <tr>
-                                    {{-- <td>{{ $id++}}</td> --}}
-                                    <td class="text-center">
-                                        <td>{{ $post->nama_barang }}</td>
-                                    </td>
-                                    <td>{{ $post->kode }}</td>
-                                    <td>{!! $post->jenis !!}</td>
-                                    <td>{!! $post->jumlah !!}.{{ $post->satuan }}</td>
-                                    <td>{!! $post->pic !!}</td>
-                                    <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('destroy', $post->id) }}" method="POST">
-                                            {{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
-                                            <a href="{{ route('barang_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                        </form>
-                                    </td>
-                              </tr>
+								<tr>
+										<td>{{ $id++}}</td>
+										<td>{{ $post->nama_barang}}</td>
+										<td>{{ $post->kode_barang}}</td>
+										{{-- <td>{{ $post->jenis}}</td> --}}
+										<td>{{ $post->stok }} - {{ $post->satuan }}</td>
+										<td>{{ $post->warehouse->nama}}</td>
+										<td>{{ $post->warehouse->lokasi}}</td>
+										<td class="text-center">
+										<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('destroy', $post->id) }}" method="POST">
+											{{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
+											<a href="{{ route('barang_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+											@csrf
+											@method('DELETE')
+											<button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+										</form>
+									</td>
+								</tr>
                             @empty
                                 <div class="alert alert-danger">
                                     Data Post belum Tersedia.

@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('barang', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->string('kode')->unique();
-            $table->string('jenis');
-            $table->integer('jumlah');
-            $table->string('satuan');
-            $table->string('pic');
+            $table->string('kode_barang', 50)->unique();
+            $table->string('nama_barang', 100);
+            $table->string('satuan', 20);
+            $table->integer('stok')->default(0);
+            $table->unsignedBigInteger('warehouse_id');
             $table->timestamps();
+            // Foreign key ke tabel warehouse
+            $table->foreign('warehouse_id')->references('id')->on('warehouse')->onDelete('cascade');
         });
     }
 

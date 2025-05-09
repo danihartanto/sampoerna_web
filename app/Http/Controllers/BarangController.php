@@ -41,15 +41,15 @@ class BarangController extends Controller
         
         //create post
         // dd($request);
-        BarangModel::create([
+        $modelbarang = BarangModel::create([
             'nama_barang'     => $request->nama_barang,
-            'kode_barang'     => $request->kode_barang,
             'jenis'   => $request->jenis,
             'stok'   => $request->stok,
             'satuan'   => $request->satuan,
             'warehouse_id'   => $request->warehouse_id
         ]);
-
+        $modelbarang->kode_barang = 'BRG' . str_pad($modelbarang->id, 5, '0', STR_PAD_LEFT);
+        $modelbarang->save();
         // return view('barang.index');
         return redirect()->to('/barang')->with(['success' => 'Data Berhasil Disimpan!']);
         //redirect to index
@@ -119,7 +119,7 @@ class BarangController extends Controller
         
         //create post
         // dd($request);
-        // $post = BarangModel::find($id);
+        $modelbarang = BarangModel::find($id);
         // dd($request);
         BarangModel::where('id', $id)->update([
             'nama_barang'     => $request->nama_barang,
@@ -130,7 +130,9 @@ class BarangController extends Controller
             'warehouse_id'   => $request->warehouse_id
         ]);
 
-        // return view('barang.index');
+        // dd($modelbarang->id);
+        $modelbarang->kode_barang = 'BRG' . str_pad($modelbarang->id, 5, '0', STR_PAD_LEFT);
+        $modelbarang->save();
         //redirect to index
         return redirect()->to('/barang')->with(['success' => 'Data Berhasil Disimpan!']);
     }

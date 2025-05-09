@@ -31,7 +31,7 @@
                       <div class="card-body">
                             <form action="{{ route('customer_add_proses') }}" method="post">
                                 @csrf
-                                <div class="mb-3 row">
+                                {{-- <div class="mb-3 row">
                                     <label for="sales_number" class="col-md-4 col-form-label text-md-end text-start">ID Pelanggan</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control @error('sales_number') is-invalid @enderror" id="sales_number" name="sales_number" value="{{ old('sales_number') }}">
@@ -39,7 +39,7 @@
                                             <span class="text-danger">{{ $errors->first('sales_number') }}</span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="mb-3 row">
                                     <label for="customer" class="col-md-4 col-form-label text-md-end text-start">Nama Perusahaan</label>
                                     <div class="col-md-6">

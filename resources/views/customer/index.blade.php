@@ -53,7 +53,7 @@
 										<td>{{ $post->user->full_name}}</td>
 										<td>{{ $post->created_at}}</td>
 										<td class="text-center">
-										<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('destroy', $post->id) }}" method="POST">
+										<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('customer_destroy', $post->id) }}" method="POST">
 											{{-- <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
 											<a href="{{ route('customer_edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
 											@csrf
@@ -63,9 +63,12 @@
 									</td>
 								</tr>
                             @empty
-                                <div class="alert alert-danger">
-                                    Data Post belum Tersedia.
-                                </div>
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								<strong>Sorry!</strong> Data belum tersedia.
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								  <span aria-hidden="true">&times;</span>
+								</button>
+							</div>
                             @endforelse
                           </tbody>
                     </table>

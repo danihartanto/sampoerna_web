@@ -34,13 +34,15 @@ class WarehouseController extends Controller
         
         //create post
         // dd($request);
-        WarehouseModel::create([
+        $wh = WarehouseModel::create([
             'nama'     => $request->nama,
-            'kode'     => $request->kode,
+            // 'kode'     => $request->kode,
             'lokasi'   => $request->lokasi,
             'kapasitas'   => $request->kapasitas,
             'telepon'   => $request->telepon
         ]);
+        $wh->kode = 'WH' . str_pad($wh->id, 5, '0', STR_PAD_LEFT);
+        $wh->save();
 
         // return view('warehouse.index');
         return redirect()->to('/warehouse')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -48,45 +50,6 @@ class WarehouseController extends Controller
         // return redirect()->route('warehouse.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    public function list_fetch()
-    {
-        $postModel = new WarehouseModel();
-        $posts = $postModel->all();
-        // $posts = $postModel->getDataByIdKategori("DECO")->getResultArray();
-        $data = '';
-
-        if ($posts) {
-            foreach ($posts as $post) {
-                $harga = number_format($post['harga_paket'],0);
-                $data .= '
-                <div class="col-lg-4 mt-lg-2 mt-sm-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="pricing-card">
-                        <h3>' . $post['name'] . '</h3>
-                        <div class="price">
-                            <span class="currency">Rp. </span>
-                            <span class="amount">' . $post['kode'] . '</span>
-                            <span class="period">/ package</span>
-                        </div>
-                        
-                    
-                        <a href="#" id="' . $post['id'] . '" data-bs-toggle="modal" data-bs-target="#detail_post_modal" class="btn btn-primary btn-sm post_detail_btn">
-                            Booking Now
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>';
-            }
-            return Response::json([
-                'error' => false,
-                'message' => $data
-            ], 201); // Status code here
-        } else {
-            return Response::json([
-                'error' => false,
-                'message' => '<div class="text-secondary text-center fw-bold my-5">No posts found in the database!</div>'
-            ]);
-        }
-    }
     public function edit(string $id)
     {
         //get post by ID
@@ -111,16 +74,16 @@ class WarehouseController extends Controller
         // dd($request);
         // $post = WarehouseModel::find($id);
         // dd($request);
+        $whid = WarehouseModel::find($id);
         WarehouseModel::where('id', $id)->update([
             'nama'     => $request->nama,
-            'kode'     => $request->kode,
+            // 'kode'     => $request->kode,
             'lokasi'   => $request->lokasi,
             'kapasitas'   => $request->kapasitas,
             'telepon'   => $request->telepon
         ]);
-
-        // return view('warehouse.index');
-        //redirect to index
+        $whid->kode = 'WH' . str_pad($whid->id, 5, '0', STR_PAD_LEFT);
+        $whid->save();
         return redirect()->to('/warehouse')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 

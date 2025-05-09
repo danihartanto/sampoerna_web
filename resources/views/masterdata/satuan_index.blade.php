@@ -61,9 +61,12 @@
 									</td>
 								</tr>
                             @empty
-                                <div class="alert alert-danger">
-                                    Data Belum Tersedia.
-                                </div>
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								<strong>Sorry!</strong> Data belum tersedia.
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								  <span aria-hidden="true">&times;</span>
+								</button>
+							</div>
                             @endforelse
                           </tbody>
                     </table>

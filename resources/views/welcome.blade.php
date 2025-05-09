@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
-          <a class="navbar-brand text-white" href="{{ URL('/') }}">Sampoerna Web</a>
+          <a class="navbar-brand text-white" href="{{ URL('/') }}">Warehouse Web</a>
           <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -60,7 +60,7 @@
             <div class="row py-lg-5">
               <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="px-4 py-2 my-2 text-center">
-                    <img src="{{ asset('/') }}image/logos.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
+                    <img src="{{ asset('/') }}image/logos.png" alt="AdminLTE Logo" class="brand-image elevation-3" width="350" style="opacity: .8">
                     {{-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
                     <h1 class="display-5 fw-bold">Selamat Datang</h1>
                 </div>

@@ -40,7 +40,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="mb-3 row">
+                                {{-- <div class="mb-3 row">
                                     <label for="kode_barang" class="col-md-4 col-form-label text-md-end text-start">Kode Barang</label>
                                     <div class="col-md-6">
                                         <input type="kode_barang" class="form-control @error('kode_barang') is-invalid @enderror" id="kode_barang" name="kode_barang" value="{{ old('kode_barang') }}">
@@ -48,7 +48,7 @@
                                             <span class="text-danger">{{ $errors->first('kode_barang') }}</span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="mb-3 row">
                                     <label for="jenis" class="col-md-4 col-form-label text-md-end text-start">jenis</label>
                                     <div class="col-md-6">

@@ -42,7 +42,7 @@
                                   </div>
                                 
                               </div>
-                              <div class="mb-3 row">
+                              {{-- <div class="mb-3 row">
                                   <label for="kode" class="col-md-4 col-form-label text-md-end text-start">Kode Warehouse</label>
                                   <div class="col-md-6">
                                     <input type="kode" class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" value="{{ old('kode', $post->kode) }}">
@@ -50,7 +50,7 @@
                                           <span class="text-danger">{{ $errors->first('kode') }}</span>
                                       @endif
                                   </div>
-                              </div>
+                              </div> --}}
                               <div class="mb-3 row">
                                   <label for="lokasi" class="col-md-4 col-form-label text-md-end text-start">Lokasi</label>
                                   <div class="col-md-6">

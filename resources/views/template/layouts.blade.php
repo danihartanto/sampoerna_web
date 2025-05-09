@@ -13,14 +13,15 @@
     <link rel="stylesheet" href="{{ asset('/') }}adminlte/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/') }}adminlte/dist/css/adminlte.min.css">
-
+    
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -102,8 +103,8 @@
 <aside class="main-sidebar sidebar-dark-secondary elevation-0">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
-        <img src="{{ asset('/') }}image/logos.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">sampoerna</span>
+        <img src="{{ asset('/') }}image/logos.png" alt="AdminLTE Logo" class="brand-image elevation-3" width="10" style="opacity: .8">
+        <span class="brand-text font-weight-light">Warehouse</span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -281,31 +282,60 @@
 <script src="{{ asset('/') }}adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="{{ asset('/') }}adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 <script src="{{ asset('/') }}adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="{{ asset('/') }}adminlte/plugins/jszip/jszip.min.js"></script>
+{{-- <script src="{{ asset('/') }}adminlte/plugins/jszip/jszip.min.js"></script> --}}
 <script src="{{ asset('/') }}adminlte/plugins/pdfmake/pdfmake.min.js"></script>
 <script src="{{ asset('/') }}adminlte/plugins/pdfmake/vfs_fonts.js"></script>
 <script src="{{ asset('/') }}adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('/') }}adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('/') }}adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+{{-- <script src="{{ asset('/') }}adminlte/plugins/chart.js/Chart.min.js"></script> --}}
+{{-- <script src="{{ asset('/') }}adminlte/plugins/summernote/summernote-bs4.min.js"></script> --}}
 
-<script src="{{ asset('/') }}adminlte/plugins/summernote/summernote-bs4.min.js"></script>
+{{-- <script src="{{ asset('/') }}adminlte/plugins/jquery/jquery.min.js"></script> --}}
+<!-- Bootstrap 4 -->
+{{-- <script src="{{ asset('/') }}adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+<!-- ChartJS -->
+{{-- <script src="{{ asset('/') }}adminlte/plugins/chart.js/Chart.min.js"></script> --}}
+<!-- AdminLTE App -->
+{{-- <script src="{{ asset('/') }}adminlte/dist/js/adminlte.min.js"></script> --}}
+<!-- AdminLTE for demo purposes -->
+{{-- <script src="{{ asset('/') }}adminlte/dist/js/demo.js"></script> --}}
 <!-- Page specific script -->
 <script>
-    $(function () {
-      $("#example1").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-12:eq(0)');
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
-    });
+$(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false, 'pageLength': 5,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+	$('#example2').DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": true, 'pageLength': 5,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+
+    $('#example3').DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": true, 'pageLength': 5,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
+
+    $('#example4').DataTable({
+      "responsive": true, 
+      "lengthChange": false, 
+      "autoWidth": true, 
+      'pageLength': 5,
+      "buttons": 
+      [
+        "copy", 
+        "csv", 
+        "excel", 
+        "pdf", 
+        "print", 
+        "colvis"
+    ]
+    }).buttons().container().appendTo('#example4_wrapper .col-md-6:eq(0)');
+
+});
+
 </script>
 <script>
     $(function () {

@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MasterdataController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/api/chart-data/{jenis}', [DashboardController::class, 'getChartData']);
+
+Route::get('/dash', [DashboardController::class, 'index']);
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
@@ -52,17 +58,37 @@ Route::controller(SalesController::class)->group(function() {
     Route::get('/sales', 'index')->name('index');
     Route::get('/sales/add', 'add')->name('add');
     Route::post('/sales/add_proses', 'add_proses')->name('sales_add_proses');
-    Route::delete('/sales/destroy/{id}', 'destroy')->name('destroy');
+    Route::delete('/sales/destroy/{id}', 'destroy')->name('sales_destroy');
     Route::get('/sales/edit/{id}', 'edit')->name('sales_edit');
     Route::put('/sales/update/{id}', 'update')->name('sales_update_proses');
 });
-Route::controller(SalesController::class)->group(function() {
+
+// Route::controller(SalesController::class)->group(function() {
+//     Route::get('/sales', 'index')->name('index');
+//     Route::get('/sales/add', 'add')->name('add');
+//     Route::post('/sales/add_proses', 'add_proses')->name('sales_add_proses');
+//     Route::delete('/sales/destroy/{id}', 'destroy')->name('sales_destroy');
+//     Route::get('/sales/edit/{number}', 'edit')->name('sales_edit');
+//     Route::put('/sales/update/{id}', 'update')->name('sales_update_proses');
+// });
+// Route::get('/sales/edit/{number}', 'SalesController@edit');
+
+Route::controller(CustomerController::class)->group(function() {
     Route::get('/customer', 'index')->name('index');
     Route::get('/customer/add', 'add')->name('add');
     Route::post('/customer/add_proses', 'add_proses')->name('customer_add_proses');
-    Route::delete('/customer/destroy/{id}', 'destroy')->name('destroy');
+    Route::delete('/customer/destroy/{id}', 'destroy')->name('customer_destroy');
     Route::get('/customer/edit/{id}', 'edit')->name('customer_edit');
     Route::put('/customer/update/{id}', 'update')->name('customer_update_proses');
+});
+
+Route::controller(ReportController::class)->group(function() {
+    Route::get('/report', 'index')->name('index');
+    Route::get('/report/add', 'add')->name('add');
+    Route::post('/report/add_proses', 'add_proses')->name('report_add_proses');
+    Route::delete('/report/destroy/{id}', 'destroy')->name('report_destroy');
+    Route::get('/report/edit/{id}', 'edit')->name('report_edit');
+    Route::put('/report/update/{id}', 'update')->name('report_update_proses');
 });
 
 Route::controller(MasterdataController::class)->group(function() {

@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sales_id')->constrained('sales')->onDelete('cascade');
             $table->foreignId('barang_id')->constrained('barang')->onDelete('restrict');
+            $table->string('nomor_fak')->unique()->nullable();
             $table->integer('qty');
             $table->decimal('harga_satuan', 12, 2);
+            $table->decimal('total', 12, 2)->nullable();
             $table->date('tanggal_jual');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
